@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-import sys
-
-# from Modules.MatchData import getMatchWin
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
 from pymongo import MongoClient
 from pytz import timezone
 from pymongo.errors import DuplicateKeyError
