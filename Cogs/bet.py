@@ -68,15 +68,7 @@ class Bet(commands.Cog):
 
                 matchBannerMessage = await channel.send(content = str(matchDate), files = self.matchBannerList)
 
-                await ctx.edit(content = "Finished Loading!!!")              
-
-                embed = discord.Embed(title = 'IPL Match', description = matchName, timestamp = timeStamp, color = ctx.author.color)
-                embed.set_author(name = 'Cricket Bot')
-                embed.set_thumbnail(url = 'https://cdn.discordapp.com/attachments/894851964406468669/962770690442932304/N247P-news-image-6291405812-23776-1597979555.jpg')
-                embed.add_field(name = 'Status:', value = matchStatusDisplay, inline = False)
-                embed.add_field(name = 'Venue:', value = matchVenue, inline = False)
-                embed.add_field(name = 'Date:', value = matchDate, inline = True)
-                embed.add_field(name = 'Time:', value = matchTime, inline = True)
+                await ctx.edit(content = "Finished Loading!!!")        
 
             for pos, data in enumerate(matchData):
 
