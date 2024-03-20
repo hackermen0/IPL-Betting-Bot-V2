@@ -14,11 +14,7 @@ from discord.ext import commands, pages
 from views.navigation_buttons import forwardButton, backwardButton, firstButton, lastButton, PageIndicator
 from views.bet_buttons import homeTeamButton, awayTeamButton
 from views.donation_button import donationButton
-<<<<<<< HEAD
 from pytz import timezone
-=======
-
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -36,16 +32,11 @@ class Bet(commands.Cog):
     @slash_command(name = 'bet', description = "Lets you bet on the teams that are playing on the current day", guild_ids = [506485291914100737, 912397204306673724])
     @commands.cooldown(
         rate = 1,
-<<<<<<< HEAD
         per = 240,
-=======
-        per = 60,
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
         type = commands.BucketType.user
         ) 
     async def bet(self, ctx):
 
-<<<<<<< HEAD
         self.embedList.clear()
         self.buttonList.clear()
 
@@ -78,50 +69,6 @@ class Bet(commands.Cog):
                 matchBannerMessage = await channel.send(content = str(matchDate), files = self.matchBannerList)
 
                 await ctx.edit(content = "Finished Loading!!!")              
-=======
-
-        if checkUserExists(ctx.user.id) == True:
-
-
-            matchObject = Match()
-
-            matchData = matchObject.getData()
-
-            matchDate = matchData[0]['date']
-
-            channel = await self.client.fetch_channel(self.channelID)
-
-            matchBannerMessage = await channel.history(limit = 1).flatten()
-
-            if matchBannerMessage[0].content != str(matchDate):
-
-                await ctx.respond("Loading...", ephemeral = True)
-
-                for pos, match in enumerate(matchData):
-
-                    matchObject.createBanner(pos, match)
-
-                    matchBanner = discord.File(f"./static/Banners/Banner_{pos}.png", filename=f"Banner_{pos}.png")
-
-                    self.matchBannerList.append(matchBanner)
-
-                matchBannerMessage = await channel.send(content = str(matchDate), files = self.matchBannerList)
-
-                await ctx.edit(content = "Finished Loading!!!")              
-
-
-            for pos, data in enumerate(matchData):
-
-                matchID = data['id']
-                matchName = data['name']
-                hasMatchStarted = data['matchStarted']
-                matchStatusDisplay = data['status']
-                matchVenue = data['venue']
-                matchTime = data['dateTimeGMT']
-                teamsList = data['teams']
-            
-                timeStamp = datetime.now()
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
 
                 embed = discord.Embed(title = 'IPL Match', description = matchName, timestamp = timeStamp, color = ctx.author.color)
                 embed.set_author(name = 'Cricket Bot')
@@ -131,7 +78,6 @@ class Bet(commands.Cog):
                 embed.add_field(name = 'Date:', value = matchDate, inline = True)
                 embed.add_field(name = 'Time:', value = matchTime, inline = True)
 
-<<<<<<< HEAD
             for pos, data in enumerate(matchData):
 
                 matchID = data['id']
@@ -158,25 +104,12 @@ class Bet(commands.Cog):
                     embed.set_image(url = matchBannerMessage[0].attachments[pos].url)
 
                 else:
-=======
-                if type(matchBannerMessage) == list:
-                    print(matchBannerMessage[0].attachments[pos].url)
-                    embed.set_image(url = matchBannerMessage[0].attachments[pos].url)
-
-                else:
-                    print(matchBannerMessage.attachments[pos].url)
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
                     embed.set_image(url = matchBannerMessage.attachments[pos].url)
                 
 
 
                 self.embedList.append(embed)
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
                 if checkBetExists(matchID, str(ctx.author.id)) == True or hasMatchStarted == True:  
                     self.disabledValue = True
 
@@ -199,11 +132,7 @@ class Bet(commands.Cog):
             homeTeamButtonObject, awayTeamButtonObject = self.buttonList[0]
 
             matchView = View(homeTeamButtonObject, awayTeamButtonObject, donationButtonObject, timeout = 120)
-<<<<<<< HEAD
             paginator = pages.Paginator(self.embedList, custom_view = matchView, timeout = 120)
-=======
-            paginator = pages.Paginator(self.embedList, custom_view = matchView)
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
 
             paginator.embedList = self.embedList
             paginator.buttonList = self.buttonList
@@ -216,7 +145,6 @@ class Bet(commands.Cog):
 
             await paginator.respond(ctx.interaction)
 
-<<<<<<< HEAD
             banners = os.listdir("./Static/Banners")
 
             if banners != []:
@@ -224,8 +152,6 @@ class Bet(commands.Cog):
                     os.remove(f"./Static/Banners/{file}")
                     print(f"Deleted {file}")
 
-=======
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
         else:
             await ctx.respond("You don't seem to have a balance\nUse the /balance command to create a balance", ephemeral = True)
 
@@ -237,11 +163,7 @@ class Bet(commands.Cog):
         if isinstance(error, commands.CommandOnCooldown):
             errorEmbed = discord.Embed(title = "Cooldown", color = ctx.author.color, timestamp = datetime.now())
             errorEmbed.add_field(name = "---------------------------------------------", value=f'Try again in {error.retry_after:.0f}s')
-<<<<<<< HEAD
             await ctx.respond(embed = errorEmbed, ephemeral = True)   
-=======
-            await ctx.respond(embed = errorEmbed, ephemeral = True)    
->>>>>>> caed42f88b689c05a1fd55f92681f52329d71a4f
 
 
 
