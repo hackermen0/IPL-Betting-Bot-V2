@@ -21,11 +21,6 @@ def hackerman(ctx):
     return ctx.author.id == 345234588857270283
 
 
-
-#creating a check so only my user can execute the commands in this file
-def hackerman(ctx):
-    return ctx.author.id == 345234588857270283
-
 class Bal(commands.Cog):
     def __init__(self, client):
         self.client = client

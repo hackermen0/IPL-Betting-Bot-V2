@@ -15,7 +15,7 @@ class Utility(commands.Cog):
         self.client = client
 
 
-    @slash_command(name = "ping", description = "Returns the latency of the bot", guild_ids = [506485291914100737])
+    @slash_command(name = "ping", description = "Returns the latency of the bot")
     async def ping(self, ctx : ApplicationContext):
 
         embed = discord.Embed(title = "Ping", color = ctx.author.color, timestamp = datetime.now())
@@ -29,7 +29,7 @@ class Utility(commands.Cog):
         await ctx.respond(embed = embed)
 
 
-    @slash_command(name = "help", description = "Shows the help command", guild_ids = [506485291914100737])
+    @slash_command(name = "help", description = "Shows the help command")
     async def help(self, ctx : ApplicationContext):
 
         embed = discord.Embed(title = "Help", color = ctx.author.color, timestamp= datetime.now())
@@ -48,7 +48,7 @@ class Utility(commands.Cog):
         await ctx.respond(embed = embed)
 
 
-    @slash_command(name = "how", description = "Shows you how to use this bot", guild_ids = [506485291914100737])
+    @slash_command(name = "how", description = "Shows you how to use this bot")
     async def how(self, ctx : ApplicationContext):
 
         embed = discord.Embed(title = "How", color = ctx.author.color, timestamp= datetime.now())
@@ -67,7 +67,7 @@ class Utility(commands.Cog):
 
         await ctx.respond(embed = embed)
 
-    @slash_command(name = "donate", description = "If you like this bot you can use this command to donate", guild_ids = [506485291914100737])
+    @slash_command(name = "donate", description = "If you like this bot you can use this command to donate")
     async def donate(self, ctx : ApplicationContext):
         embed = discord.Embed(title = "Donate", color = ctx.author.color, timestamp= datetime.now())
 

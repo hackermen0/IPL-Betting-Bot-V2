@@ -29,7 +29,7 @@ class Bet(commands.Cog):
         self.matchBannerList = []
         
 
-    @slash_command(name = 'bet', description = "Lets you bet on the teams that are playing on the current day", guild_ids = [506485291914100737, 912397204306673724])
+    @slash_command(name = 'bet', description = "Lets you bet on the teams that are playing on the current day")
     @commands.cooldown(
         rate = 1,
         per = 240,
