@@ -2,7 +2,9 @@ from datetime import date
 import os
 import requests
 from PIL import Image, ImageFont, ImageDraw
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 

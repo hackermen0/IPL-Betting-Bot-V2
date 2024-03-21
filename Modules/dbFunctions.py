@@ -4,6 +4,9 @@ from pymongo.errors import DuplicateKeyError
 from datetime import datetime, timedelta
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
