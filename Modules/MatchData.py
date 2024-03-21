@@ -15,8 +15,6 @@ class Match():
       #date format = str(YYYY-MM-DD)
       self.dateToday = str(date.today())
 
-      self.dateToday = "2024-03-22"
-
       apiKey = os.getenv('CRICAPI_KEY')
 
       baseLink = "https://api.cricapi.com/v1"

@@ -82,7 +82,7 @@ class Utility(commands.Cog):
 
         All donations are appreciated ♥️
 
-        [Donate Here](https://paypal.me/FIFABettingBot)
+        [Donate Here](https://ipl-betting-bot-website.vercel.app/#donate)
 
         """
         )

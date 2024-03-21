@@ -9,5 +9,5 @@ class donationButton(Button):
         self.value = True
 
 
-        super().__init__(style= ButtonStyle.link, label = "Donate", disabled = False, url = "https://paypal.me/FIFABettingBot", row = 2)
+        super().__init__(style= ButtonStyle.link, label = "Donate", disabled = False, url = "https://ipl-betting-bot-website.vercel.app/#donate", row = 2)
 
