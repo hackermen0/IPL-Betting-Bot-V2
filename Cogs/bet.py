@@ -134,8 +134,6 @@ class Bet(commands.Cog):
             matchView = View(homeTeamButtonObject, awayTeamButtonObject, donationButtonObject, timeout = 120)
             paginator = pages.Paginator(self.embedList, custom_view = matchView, timeout = 240, disable_on_timeout = True)
 
-            await paginator.interaction_check()
-
             paginator.embedList = self.embedList
             paginator.buttonList = self.buttonList
 
@@ -153,7 +151,7 @@ class Bet(commands.Cog):
                 
                 else:
                     return True
-
+            
             paginator.interaction_check = interactionCheck
             await paginator.respond(ctx.interaction)
 
