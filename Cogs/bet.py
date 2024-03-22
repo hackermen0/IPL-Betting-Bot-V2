@@ -18,6 +18,11 @@ from pytz import timezone
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#creating a check which blocks user ids in the list
+def block(ctx):
+    return ctx.author.id not in [529168570597376006]
+
+
 class Bet(commands.Cog):
     def __init__(self, client):
         self.client : discord.Bot = client
@@ -30,6 +35,7 @@ class Bet(commands.Cog):
         
 
     @slash_command(name = 'bet', description = "Lets you bet on the teams that are playing on the current day")
+    @commands.check(block)
     @commands.cooldown(
         rate = 1,
         per = 240,
@@ -39,6 +45,8 @@ class Bet(commands.Cog):
 
         self.embedList.clear()
         self.buttonList.clear()
+
+        await ctx.defer()
 
 
         if checkUserExists(ctx.user.id) == True:
@@ -151,11 +159,18 @@ class Bet(commands.Cog):
 
     @bet.error
     async def bet_error(self, ctx, error):
+        print("\n")
         print(error)
+        print(type(error))
         if isinstance(error, commands.CommandOnCooldown):
             errorEmbed = discord.Embed(title = "Cooldown", color = ctx.author.color, timestamp = datetime.now())
             errorEmbed.add_field(name = "---------------------------------------------", value=f'Try again in {error.retry_after:.0f}s')
-            await ctx.respond(embed = errorEmbed, ephemeral = True)   
+            await ctx.respond(embed = errorEmbed, ephemeral = True)
+        # if isinstance(error, commands.CheckFailure):
+        #     print("failed")
+        #     checkEmbed = discord.Embed(title="Banned", color = ctx.author.color, timestamp = datetime.now())
+        #     checkEmbed.add_field(name = "---------------------------------------------", value='Your account has been banned from using this command')
+        #     await ctx.respond(embed = checkEmbed)
 
 
 
