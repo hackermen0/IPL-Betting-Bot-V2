@@ -107,8 +107,18 @@ class Bal(commands.Cog):
                 localEmbed.add_field(name = f"{pos + 1}) {User.name}:" , value = str(balance), inline = False)
 
 
+            async def interactionCheck(interaction : discord.Interaction):
+     
+                if interaction.user != ctx.user:
+                    await interaction.response.send_message(f'{ctx.author.mention} used this command\nUse your own </leaderboard:1220082667035426857> command', ephemeral = True)
+                    return False
+                
+                else:
+                    return True
 
             view = discord.ui.View(LeaderboardSelect(embeds = (localEmbed, globalEmbed)))
+            
+            view.interaction_check = interactionCheck
 
 
             await ctx.interaction.followup.send(embed = localEmbed, view = view, content = "")
@@ -178,6 +188,16 @@ class Bal(commands.Cog):
 
             paginator = pages.Paginator(pages = embedList)
 
+            async def interactionCheck(interaction : discord.Interaction):
+     
+                if interaction.user != ctx.user:
+                    await interaction.response.send_message(f'{ctx.author.mention} used this command\nUse your own </stats:1220082667035426858> command', ephemeral = True)
+                    return False
+                
+                else:
+                    return True
+
+            paginator.interaction_check = interactionCheck
             await paginator.respond(ctx.interaction)
 
         else:

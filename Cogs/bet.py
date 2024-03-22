@@ -132,7 +132,9 @@ class Bet(commands.Cog):
             homeTeamButtonObject, awayTeamButtonObject = self.buttonList[0]
 
             matchView = View(homeTeamButtonObject, awayTeamButtonObject, donationButtonObject, timeout = 120)
-            paginator = pages.Paginator(self.embedList, custom_view = matchView, timeout = 120)
+            paginator = pages.Paginator(self.embedList, custom_view = matchView, timeout = 240, disable_on_timeout = True)
+
+            await paginator.interaction_check()
 
             paginator.embedList = self.embedList
             paginator.buttonList = self.buttonList
@@ -143,6 +145,16 @@ class Bet(commands.Cog):
             paginator.add_button(lastButton())
             paginator.add_button(PageIndicator(label = f"1/{len(self.embedList)}"))
 
+            async def interactionCheck(interaction : discord.Interaction):
+     
+                if interaction.user != ctx.user:
+                    await interaction.response.send_message(f'{ctx.author.mention} used this command\nUse your own </bet:1220331542220640429> command', ephemeral = True)
+                    return False
+                
+                else:
+                    return True
+
+            paginator.interaction_check = interactionCheck
             await paginator.respond(ctx.interaction)
 
             banners = os.listdir("./Static/Banners")
