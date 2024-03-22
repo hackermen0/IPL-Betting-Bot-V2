@@ -37,13 +37,13 @@ class Utility(commands.Cog):
         embed.set_author(name = 'IPL Betting Bot', icon_url = "https://cdn.discordapp.com/attachments/894851964406468669/1216443254460125266/image.png?ex=66006810&is=65edf310&hm=c20a4dfc1425137f6113630fb08f5afe4b4b2850d83400e997970674f851d517&")
         embed.set_footer(text = f"Used by {ctx.author.name}")
 
-        embed.add_field(name = "</balance:1215973218955956317>:", value = "Lets you check the amount of money you have to bet", inline = False)
-        embed.add_field(name = "</bet:1216062332518531223>:", value = "Lets you bet on the teams that are playing on the current day", inline = False)
-        embed.add_field(name = "</leaderboard:1215973218955956319>:", value = "Shows the leaderboard with the top betters", inline = False)
-        embed.add_field(name = "</how:1215714112093425705>:", value = "Shows you how to use this bot", inline = False)
-        embed.add_field(name = "</donate:1215714112093425706>:", value = "If you like this bot you can use this command to donate", inline = False)
-        embed.add_field(name = "</ping:1215703916365484105>:", value = "Returns the latency of the bot", inline = False)
-        embed.add_field(name = "</stats:1215973218955956320>:", value = "Shows the amount of money betted on the current day matches", inline = False)
+        embed.add_field(name = "</balance:1220082667035426856>:", value = "Lets you check the amount of money you have to bet", inline = False)
+        embed.add_field(name = "</bet:1220331542220640429>:", value = "Lets you bet on the teams that are playing on the current day", inline = False)
+        embed.add_field(name = "</leaderboard:1220082667035426857>:", value = "Shows the leaderboard with the top betters", inline = False)
+        embed.add_field(name = "</how:1220331542220640432>:", value = "Shows you how to use this bot", inline = False)
+        embed.add_field(name = "</donate:1220331542220640433>:", value = "If you like this bot you can use this command to donate", inline = False)
+        embed.add_field(name = "</ping:1220331542220640430>:", value = "Returns the latency of the bot", inline = False)
+        embed.add_field(name = "</stats:1220082667035426858>:", value = "Shows the amount of money betted on the current day matches", inline = False)
 
         await ctx.respond(embed = embed)
 
@@ -57,12 +57,12 @@ class Utility(commands.Cog):
         embed.set_footer(text = f"Used by {ctx.author.name}")
 
         embed.add_field(name = "How to play:", value = """
-        Use the </balance:1215973218955956317> command to create and check the amount of money you have to bet.
+        Use the </balance:1220082667035426856> command to create and check the amount of money you have to bet.
 
-        After that use the </bet:1216062332518531223> command to bet on the teams playing on that current day, you can use the navigation buttons to bet on multiple matches.
+        After that use the </bet:1220331542220640429> command to bet on the teams playing on that current day, you can use the navigation buttons to bet on multiple matches.
         If the team you betted on wins, you will be awarded a percentage of total amount betted on that match the next day.
 
-        Use the </leaderboard:1215973218955956319> command to see the top betters.    
+        Use the </leaderboard:1220082667035426857> command to see the top betters.    
         """)
 
         await ctx.respond(embed = embed)
