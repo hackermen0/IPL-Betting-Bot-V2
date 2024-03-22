@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-intents = discord.Intents.all()
+intents = discord.Intents.default()
 client = commands.Bot(command_prefix = '.',  case_insensitive=True, help_command = None, intents = intents)
 
 @client.event
