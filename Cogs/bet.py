@@ -20,7 +20,7 @@ from pytz import timezone
 
 #creating a check which blocks user ids in the list
 def block(ctx):
-    return ctx.author.id not in [529168570597376006]
+    return ctx.author.id not in []
 
 
 class Bet(commands.Cog):
