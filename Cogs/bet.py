@@ -100,6 +100,11 @@ class Bet(commands.Cog):
                 embed.add_field(name = 'Time:', value = formattedTIme, inline = True)
                 embed.set_footer(text = f"Used by {ctx.author.name}")
 
+                awardEmbed = discord.Embed(title = "Claim your reward", timestamp = timeStamp, color = ctx.author.color)
+                awardEmbed.set_author(name = 'IPL Betting Bot', icon_url = "https://cdn.discordapp.com/attachments/894851964406468669/1216443254460125266/image.png?ex=66006810&is=65edf310&hm=c20a4dfc1425137f6113630fb08f5afe4b4b2850d83400e997970674f851d517&")
+                awardEmbed.add_field(name = "\u2800", value = "Use the /claim command to get a reward")
+                awardEmbed.set_footer(text = f"Used by {ctx.author.name}")
+
                 if type(matchBannerMessage) == list:
                     embed.set_image(url = matchBannerMessage[0].attachments[pos].url)
 
@@ -154,6 +159,7 @@ class Bet(commands.Cog):
             
             paginator.interaction_check = interactionCheck
             await paginator.respond(ctx.interaction)
+            await ctx.send(embed = awardEmbed)
 
             banners = os.listdir("./Static/Banners")
 
