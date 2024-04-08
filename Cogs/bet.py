@@ -70,7 +70,7 @@ class Bet(commands.Cog):
 
                     matchObject.createBanner(pos, match)
 
-                    matchBanner = discord.File(f"./static/Banners/Banner_{pos}.png", filename=f"Banner_{pos}.png")
+                    matchBanner = discord.File(f"./Static/Banners/Banner_{pos}.png", filename=f"Banner_{pos}.png")
 
                     self.matchBannerList.append(matchBanner)
 
