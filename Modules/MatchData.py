@@ -8,7 +8,6 @@ load_dotenv()
 
 
 class Match():
-
     def __init__(self):
 
         # date format = str(YYYY-MM-DD)
